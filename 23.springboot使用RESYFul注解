@@ -1,0 +1,32 @@
+1.@PathVariable注解
+    从url中获取数据
+    @PathVariable(value = "")
+        value可省略,同时路径变量名和形参名相同时""也可以省略
+        加在方法的参数类型前
+        ""内为路径变量名
+2.@PostMapping注解
+    支持post请求方式,等同于@RuquestMapping(method = RequestMethod.GET)
+    @PostMapping("")
+        加在方法上
+        ""内为路径变量
+        路径变量可多个,例:
+            /student/{name}/{age}
+            则路径变量可取name和age
+3.@GetMapping注解
+    支持get请求方式,同上
+    @GetMapping("")
+        加在方法上
+        ""内为路径变量
+4.@PutMapping注解
+    支持put请求方式,同上
+    @PutMapping("")
+        加在方法上
+        ""内为路径变量
+5.@DeleteMapping注解
+    支持delete请求方式,同上
+    @DeleteMapping("")
+        加在方法上
+        ""内为路径变量
+6.@RestController注解
+    复合注解,@ResponseBody+@Controller
+    加在类上

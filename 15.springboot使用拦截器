@@ -1,0 +1,10 @@
+1.创建web应用,有web依赖,会自动依赖springmvc,也就有拦截器的接口HandlerInterceptor,才能创建自定义拦截器
+2.自定义一个拦截器实现系统拦截器的3个方法之一
+3.自定义一个类实现WebMvcConfigurer接口
+    添加@Configuration注解,将该类当作配置文件
+    该接口有很多与springmvc有关的功能
+        实现addInterceptors(InterceptorRegistry registry)方法
+            作用:添加拦截器对象,注入到容器中
+            registry.addInterceptor(拦截器对象).addPathPatterns(url) :要拦截的请求地址
+                                             .excludePathPatterns(url) :不拦截的请求地址
+                                             .order() :多个拦截器时拦截器执行的顺序

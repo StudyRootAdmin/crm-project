@@ -1,0 +1,62 @@
+war方式:
+    指定打包方式为war
+        <packaging>war</packaging>
+    指定jsp编译目录
+
+        <!--resources插件， 把jsp编译到指定的目录-->
+        <resources>
+           <resource>
+              <directory>src/main/webapp</directory>
+              <targetPath>META-INF/resources</targetPath>
+              <includes>
+                 <include>**/*.*</include>
+              </includes>
+           </resource>
+
+           <!--使用了mybatis ，而且mapper文件放在src/main/java目录-->
+           <resource>
+              <directory>src/main/java</directory>
+              <includes>
+                 <include>**/*.xml</include>
+              </includes>
+           </resource>
+
+           <!--把src/main/resources下面的所有文件，都包含到classes目录-->
+           <resource>
+              <directory>src/main/resources</directory>
+              <includes>
+                 <include>**/*.*</include>
+              </includes>
+           </resource>
+        </resources>
+
+    可指定打包后的文件名称
+        pom文件中 :
+            <build>
+                <finalName>mytest</finalName>
+            </build>
+    打包后使用独立的服务器运行web应用
+        主启动类继承SpringBootServletInitializer
+            重写configure(SpringApplicationBuilder builder)方法
+                调用builder的sources()方法,参数为主启动类Application.class
+    maven
+        先clean在package
+        成功后在target下有一个mytest.war
+    使用独立的服务器运行该web应用
+        将打包文件放到tomcat安装路径的webapps目录下
+        运行tomcat
+            tomcat安装路径的bin目录下,使用startup.bat启动独立的tomcat
+    直接地址访问该应用的url即可
+jar方式
+    有jsp文件时,必须指定maven-plugin插件的版本为1.4.2.RELEASE
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>1.4.2.RELEASE</version>
+        </plugin>
+    可独立启动,不依赖于服务器
+        cmd命令行执行   java -jar xxx.jar
+
+区别:
+    war可以利用服务器
+    jar小巧,可独立运行,有内嵌服务器

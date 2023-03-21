@@ -1,0 +1,9 @@
+在配置文件中自定义k和v
+    例如:
+    school:
+        name: 李圩鑫
+        website: www.123.com
+        address: 重庆
+    使用语法:
+    @Value("${school.name}")
+    private String name;

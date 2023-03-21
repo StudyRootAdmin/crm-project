@@ -1,0 +1,12 @@
+application.properties配置文件(默认使用)
+    配置端口号:
+        server.port=8080
+    设置访问应用上下文路径
+        server.servlet.context-path=/springboot
+application.yml配置文件(常用)
+    server:
+        配置端口号:
+        port: 8080
+        设置访问应用上下文路径
+        servlet:
+            context-path: /springboot

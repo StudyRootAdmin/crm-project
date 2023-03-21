@@ -1,0 +1,20 @@
+三种方式扫描dao接口和mapper文件
+1.
+每个mapper接口使用@mapper注解进行扫描
+2.
+主启动类Application.java添加@MapperScan注解可以扫描指定包下的dao接口和mapper文件
+    @MapperScan(basePackages="mapper所在的包名")   copy reference
+3.
+当dao接口和mapper文件分开放置,该如何扫描?
+    1.mapper文件放到resources目录下的mapper包下
+    2.在主配置文件中指定mapper文件的位置
+        mybatis.mapper-locations=classpath:mapper/*.xml
+    3.在pom.xml文件中将resources目录中的文件编译到目标目录中
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>

@@ -1,0 +1,24 @@
+1.标准变量表达式
+    语法 : ${key}
+    作用 : 获取key中的文本数据,key是request作用域中的key
+            使用request.setAttribute("key")
+            使用model.addAttribute("key")
+    使用 : th:text="${key}",动态渲染时会覆盖标签原本的文本
+        <p th:text="${student.id}"></p>
+2.选择变量表达式(星号表达式)
+    语法 : *{key}
+    使用 :
+        第一种方式:配合${}使用,例:Student类有id,name,age属性
+            <div th:object="${student}">
+                <p th:text="*{id}"></p>
+                <p th:text="*{name}"></p>
+                <p th:text="*{age}"></p>
+            </div>
+        第二种方式:同#{}相同
+            th:text="*{student.id}"
+3.链接表达式(URL表达式)
+    语法 : @{url}
+    作用 : 表示链接
+    使用 :
+        <a th:href="@{url(id=${stuId})}"></a>
+        传多个参数时用 , 隔开

@@ -1,0 +1,10 @@
+springmvc中有一个过滤器可将post请求转成put或delete
+    过滤器： org.springframework.web.filter.HiddenHttpMethodFilter
+实现步骤:
+    1.在主配置文件中开启该过滤器
+        spring.mvc.hiddenmethod.filter.enabled=true
+    2.在请求页面中,包含_method参数,值是put或delete,但是发起请求的方式是post
+        <form action="访问路径" method="post">
+            <input type="hidden" name="_method" value="put" />
+            <input type="submit" value="测试" />
+          </form>

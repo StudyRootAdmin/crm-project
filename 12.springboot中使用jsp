@@ -1,0 +1,31 @@
+springboot不推荐使用jsp,而是使用模板技术代替jsp
+使用方法:
+    1.加入处理jsp的依赖,负责编译jsp的文件
+            <dependency>
+                <groupId>org.apache.tomcat.embed</groupId>
+                <artifactId>tomcat-embed-jasper</artifactId>
+            </dependency>
+    2.添加其他功能:
+            servlet依赖
+                    <dependency>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>javax.servlet-api</artifactId>
+                        <version>4.0.1</version>
+                    </dependency>
+            jsp依赖
+                    <dependency>
+                        <groupId>javax.servlet.jsp</groupId>
+                        <artifactId>javax.servlet.jsp-api</artifactId>
+                        <version>2.3.3</version>
+                    </dependency>
+            jstl依赖
+                    <dependency>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>jstl</artifactId>
+                        <version>1.2</version>
+                    </dependency>
+    3.创建存放jsp的目录,一般叫做webapp,改成web资源目录,小蓝点
+    4.在pom文件中指定jsp文件编译后存放的目录
+        目录名:META-INF/resources
+    5.创建Controller访问jsp
+    6.在配置文件中配置视图解析器

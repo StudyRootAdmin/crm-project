@@ -1,0 +1,4 @@
+激活使用某个配置文件,默认使用application.properties
+    spring:
+        profiles:
+            active: 环境名

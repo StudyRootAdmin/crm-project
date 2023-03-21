@@ -1,0 +1,31 @@
+REST : 表现层状态的转移
+    一种互联网软件架构设计的风格,更简洁有层次,RESTFul结构
+    例 : http接口为          http://localhost:8080/boot/order?id=1021&status=1
+         RESTFul的地址为     http://localhost:8080/boot/order/1021/1
+
+    使用http中的动作(请求方式),表示对资源的操作(CRUD)
+        GET  : 查询资源
+            处理单个资源： 用他的单数方式
+                http://localhost:8080/myboot/student/1001
+                http://localhost:8080/myboot/student/1001/1
+            处理多个资源：使用复数形式
+                http://localhost:8080/myboot/students/1001/1002
+        POST : 创建
+            http://localhost:8080/myboot/student
+            在post请求中传递数据
+                <form action="http://localhost:8080/myboot/student" method="post">
+                    姓名：<input type="text" name="name" />
+                    年龄：<input type="text" name="age" />
+                  </form>
+        PUT  : 更新
+            <form action="http://localhost:8080/myboot/student/1" method="post">
+                姓名：<input type="text" name="name" />
+                年龄：<input type="text" name="age" />
+                     <input type="hidden" name="_method" value="PUT" />
+              </form>
+        DELETE : 删除
+            <a href="http://localhost:8080/myboot/student/1">删除1的数据</a>
+
+        需要的分页，  排序等参数，依然放在url的后面， 例如
+        http://localhost:8080/myboot/students?page=1&pageSize=20
+

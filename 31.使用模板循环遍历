@@ -1,0 +1,44 @@
+th:each 循环遍历,可遍历集合、数组及Map   和JSTL的<c:forEach>类似
+    1.循环List集合
+        使用方法:
+            <div th:each="集合循环成员,循环的状态变量:${key}">
+                <p th:text="${集合循环成员}"></p>
+            </div>
+            集合循环成员,循环的状态变量 : 两个名称都是自定义的    循环的状态变量可不定义,默认为 集合循环成员Stat
+            可省略为    th:each="集合循环成员:${key}"
+
+            例: 后台传来User对象的集合users,有id,name,sex,age属性
+                <div th:each="user,userStat:${users}">
+                    <p th:text="${user.id}"/>
+                    <p th:text="${user.name}"/>
+                    <p th:text="${user.sex}"/>
+                    <p th:text="${user.age}"/>
+                </div>
+
+                userStat : 是循环体的信息,有以下属性
+                    index : 当前迭代对象的下标,0开始
+                    count : 当前迭代对象的个数,1开始
+                    size : 被迭代对象的大小
+                    current : 当前迭代变量,和使用user一样
+                    even/odd : 布尔值,表示当前循环是否是偶数/基数
+                    first : 布尔值,表示当前循环是否是第一个
+                    last L布尔值,表示当前循环是否是最后一个
+    2.循环Array数组
+        同循环List集合
+    3.循环Map
+        大部分同循环List集合
+        不同之处在于
+            map有key和value可获取,例:
+                key存user1,value存user对象,user对象有id,name,sex,age属性
+                    <div th:each="map:${mymap}">
+                        <p th:text="${map.key}"/>
+                        <p th:text="${map.value}"/>     这是取得value中村的user对象
+                        <p th:text="${map.value.id}"/>  这是取得user对象的属性
+                        <p th:text="${map.value.name}"/>
+                        <p th:text="${map.value.sex}"/>
+                        <p th:text="${map.value.age}"/>
+
+                    </div>
+
+    list集合可以存放map
+        嵌套循环,先循环list,再循环map

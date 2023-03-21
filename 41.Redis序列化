@@ -1,0 +1,18 @@
+序列化 : 将对象转化为可传输的字节序列(二进制)的过程
+反序列化 : 将字节序列还原成对象的过程
+
+序列化的目的 : 为了对象可以跨平台存储(例如:Windows系统和Linux系统)和进行网络传输
+    跨平台存储和网络传输的方式就是IO,而IO支持的数据格式就是字节数组
+    因此制定了一种转换规则来实现这种目的(序列化和反序列化)
+
+常见的序列化方式:
+    JDK
+    JSON
+    XML
+    ......
+springboot设置RedisTemplate的序列化
+    字符串序列化
+        key和value分开设置
+            redisTemplate.setKeySerializer(new StringRedisSerializer())
+            redisTemplate.setValueSerializer(new StringRedisSerializer())
+    还可以设置其他的序列化类型,只需要new不同的类型

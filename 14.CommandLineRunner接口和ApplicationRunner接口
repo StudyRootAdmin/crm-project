@@ -1,0 +1,6 @@
+CommandLineRunner接口
+    实现接口中的run方法,在创建容器对象后会创建容器中的对象,并且可以自定义执行一些操作
+    run方法参数为ApplicationArguments
+ApplicationRunner接口
+    与CommandLineRunner接口只是参数不同
+    run方法参数为String数组

@@ -1,0 +1,35 @@
+常用来处理字符编码
+web应用
+1.创建自定义的过滤器类,实现Filter接口(javax.servlet中的)
+    实现doFilter方法
+        使用FilterChain传递请求
+            doFilter方法
+2.注册Filter过滤器对象
+    创建自定义配置类@Configuration
+    定义FilterRegistrationBean方法   @Bean
+        创建自定义FilterRegistrationBean对象
+            FilterRegistrationBean对象的setFilter(Filter对象)方法和addUrlMappings(访问该过滤器的url路径)方法
+        返回值是一个Bean
+
+字符集过滤器
+    解决中文乱码,输出默认编码是ISO-8859-1
+    自定义字符集过滤器
+        配置字符集过滤器
+            注册servlet
+            注册Filter
+                1.创建框架中的过滤器类CharacterEncodingFilter对象
+                2.指定使用的编码方式
+                    filter.setEncoding("utf-8")
+                3.指定request和response都使用encoding的值
+                    filter.setForceEncoding(true)
+                4.FilterRegistrationBean对象的setFilter(Filter对象)方法和addUrlMappings(访问该过滤器的url路径)方法
+         在配置文件中设置server.servlet.encoding.enable=false;
+
+
+    使用系统的字符集过滤器(常用)
+        在主配置文件中设置
+            server.servlet.encoding.enabled=true
+            指定使用的编码格式
+            server.servlet.encoding.charset=utf-8
+            强制request和response都使用charset属性的值
+            server.servlet.encoding.force=true

@@ -1,0 +1,47 @@
+大部分属性和html相同,只是加上了th前缀,让其被模板引擎处理
+可以动态的获取从后端传来的数据
+    th:action 访问后台的映射路径
+    th:method 访问后台的请求方式
+    th:href 超链接
+    th:src 外部资源引入
+    th:text 显示文本在标签体中
+    th:value 显示文本在文本框中
+    th:style 设置样式
+    th:each 循环遍历,可遍历集合、数组及Map   和JSTL的<c:forEach>类似
+    th:if="boolean条件"  条件为true显示标签体内容,反之不显示
+    th:unless="boolean条件"   条件为false显示标签体内容,反之不显示
+        注意:使用拉姆达表达式判断时在${}里面进行的
+            空字符串代表true
+            null代表false
+    th:switch="条件"
+        <div th:switch="要比对的值">
+            <p th:case="值1">
+                结果1
+            </p>
+            <p th:case="值2">
+                结果2
+            </p>
+            <p th:case="*">
+                默认结果
+            </p>
+            以上的case只有一个语句执行
+
+        </div>
+    th:inline   内联,有三个取值类型text,javascript,none    获取数据使用[]
+        内联文本text : 在html标签外获取表达式的值
+               <p>显示姓名是：[[${key}]]</p>
+
+               <div th:inline="text">
+                   <p>我是[[${name}]]，年龄是[[${age}]]</p>
+               </div>
+        内联javascript : 在脚本语句中获取模板中的数据    获取数据使用[[]]
+            <script type="text/javascript" th:inline="javascript">
+                 var name = [[${name}]];
+                 var age = [[${age}]];
+
+                 //alert("获取的模板中数据 "+name + ","+age)
+
+                function fun(){
+                    alert("单击事件，获取数据 "+ name + ","+ [[${sex}]])
+                }
+            </script>

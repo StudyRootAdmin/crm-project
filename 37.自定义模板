@@ -1,0 +1,59 @@
+定义模板 :
+    语法:
+        th:fragment="自定义模板的名称"
+        例如：head.html页面
+        <div th:fragment="top">
+            <p>
+                动力节点-java开发
+            </p>
+            <p>
+                www.bjpowernode.com
+            </p>
+        </div>
+        head里面就包括下面标签的内容
+引用模板 :
+    语法:
+        1.~{templatename :: selector}
+            templatename : 自定义模板所在的文件名
+            selector : 自定义模板名称
+        2.templatename :: selector
+    对于使用模板,有包含模板(th:include)和插入模板(th:insert)
+        例子: 有一个head.html页面,里面自定义了top模板
+        插入模板 : 是将自定义板内容的所有标签都添加进去,添加在div之内
+            <div th:insert="~head :: top}">
+
+            </div>
+            插入后变成:
+            <div th:insert="~head :: top}">
+                  <div>
+                      <p>
+                          动力节点-java开发
+                      </p>
+                      <p>
+                          www.bjpowernode.com
+                      </p>
+                  </div>
+            </div>
+        包含模板 : 是将自定义板内容的所有标签都添加进去,覆盖原有的div
+            <div th:include="~head :: top}">
+
+            </div>
+            使用后变成:
+            <div>
+                <p>
+                    动力节点-java开发
+                </p>
+                <p>
+                    www.bjpowernode.com
+                </p>
+            </div>
+        如果一个html文件中有多个模板,使用这个文件中的多个模板时
+            1.分别引用
+            2.引用整个html文件 :
+                第一种方式:
+                <div th:include="head :: html"></div>
+                第二种方式:
+                <div th:include="head"></div>
+        使用其他目录种的模板 : 同级有个common目录.下有一个left.html文件,引用这个文件的模板
+            <div th:include="common/left :: html"></div>
+            <div th:include="common/left"></div>

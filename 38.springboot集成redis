@@ -1,0 +1,28 @@
+Redis是一个NoSQL数据库,长作为缓存Cache使用
+Redis是一个中间件,是一个独立的服务器
+比较著名的客户端:Jedis , lettuce , Redisson
+
+spring和springboot中有一个RedisTemplate(StringRedisTemplate)工具类,处理和Redis的交互
+RedisTemplate和StringRedisTemplate的区别:
+    StringRedisTemplate : 将key和value都是作为String处理,使用的时String的序列化,可读性好
+    RedisTemplate : 把key和value经过了序列化到redis,key和value是序列化的内容,不能直接识别
+
+Redis-x64-3.2.100.rar 解压缩到一个 非中文 的目录
+redis-server.exe：服务端， 启动后，不要关闭
+redis-cli.exe：客户端， 访问redis中的数据
+edisclient-win32.x86_64.2.0.jar : Redis图形界面客户端
+
+springboot使用Redis
+    创建项目
+        web依赖
+        NoSQL中的Redis依赖
+            自动添加起步依赖redis
+            使用的是lettuce-core客户端
+    配置Redis服务器信息
+        配置主机名
+            spring.redis.host=
+        配置端口号
+            spring.redis.port=
+        配置密码 : 没有密码就不需要设置密码
+            spring.redis.password=
+    

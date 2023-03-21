@@ -1,0 +1,15 @@
+两种方式:
+    第一种:使用spring提供的初始化器  spring initialize
+        使用的地址:https://start.spring.io(国外的地址)
+        static目录:静态资源(js,css,图片)
+        templates目录:模板文件
+        application.properties文件:springboot重要的配置文件
+        application.java文件:主启动类
+
+    第二种方式:使用spring提供的初始化器  spring initialize
+        使用的地址:https://start.springboot.io(国内的地址)
+
+    第三种方式:普通的maven项目
+        写上父项目<parent>
+        加上spring-boot-starter-web依赖
+        在resources目录新建一个application.properties文件

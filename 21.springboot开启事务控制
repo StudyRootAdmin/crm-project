@@ -1,0 +1,22 @@
+两种方式:
+    1.@Transaction注解
+    2.aspectj框架可以在xml配置文件中声明事务控制的内容
+
+
+    在主启动类上加@EnableTransactionManager注解
+        使用mybatis代码自动生成插件，粘贴到pom文件中
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.6</version>
+                <configuration>
+                    <!--配置文件的位置-->
+                    <configurationFile>GeneratorMapper.xml</configurationFile>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+            </plugin>
+        拷贝GeneratorMapper.xml文件，到项目根目录之下,和src平级
+        pom文件下配置资源目录
+
+        GeneratorMapper.xml文件修改jdbc连接数据库的jar包路径

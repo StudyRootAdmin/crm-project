@@ -1,0 +1,5 @@
+通过代码从容器中获取对象
+    1.获取容器对象
+    ConfigurableApplicationContext ctx = SpringApplication.run(Application.class,args)
+    2.从容器中获取对象
+    UserService userService =(UserService) ctx.getBean("userService")

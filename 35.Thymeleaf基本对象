@@ -1,0 +1,33 @@
+模板引擎有提供一组内置对象,可直接在模板中使用,使用#号开始引用
+1.#request : HttpServletRequest
+2.#session : HttpSession
+    session : #session的简写方式,也代表HttpSession,是Map
+注意:带#的才能够调用内置对象的各种方法,简写的不能,简写的只能够取作用域中的值
+内置对象可以获取作用域中的数据,可用方法:
+    session.name                :   name作为key,直接获得作用域中的value
+    #request.getAttribute()     :   根据key获取作用域中的value
+    #request.getRequestURL()    :   获取网页的完整地址,没有参数
+    #request.getRequestURI()    :   获取访问地址
+    #request.getQueryString()   :   获取查询参数
+    #request.getContextPath()   :   获取上下文对象,就是我说的映射路径
+    #request.getServerName()    :   获取服务器地址
+    #request.getServerPort()    :   获取服务器端口号
+    #session.getId()            :   获取session的id
+    例子:h
+     <div style="margin-left: 350px">
+            <h3>内置对象#request,#session，session的使用</h3>
+            <p>获取作用域中的数据</p>
+            <p th:text="${#request.getAttribute('requestData')}"></p>
+            <p th:text="${#session.getAttribute('sessionData')}"></p>
+            <p th:text="${session.name}"></p>
+
+            <br/>
+            <br/>
+            <h3>使用内置对象的方法</h3>
+            getRequestURL=<span th:text="${#request.getRequestURL()}"></span><br/>
+            getRequestURI=<span th:text="${#request.getRequestURI()}"></span><br/>
+            getQueryString=<span th:text="${#request.getQueryString()}"></span><br/>
+            getContextPath=<span th:text="${#request.getContextPath()}"></span><br/>
+            getServerName=<span th:text="${#request.getServerName()}"></span><br/>
+            getServerPort=<span th:text="${#request.getServerPort()}"></span><br/>
+    </div>

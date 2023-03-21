@@ -1,0 +1,7 @@
+1.是创建的一个spring应用
+2.内嵌有tomcat(默认),jetty,Undertow服务器
+3.提供了starter起步依赖,简化应用的配置
+    比如:MyBatis框架需要配置SqlSessionFactory,Dao的代理对象,可以直接在pom.xml文件中加入mybatis-spring-boot-starter依赖就能代替
+4.已经配置好spring,springmvc,第三方的相关对象,可直接使用
+5.提供了健康检查,统计,外部化配置
+6.不用生成代码,不使用xml文件做配置文件

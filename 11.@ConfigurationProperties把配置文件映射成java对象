@@ -1,0 +1,15 @@
+
+定义一个类
+配置文件中自定义与类的属性名相同的key
+    类名.属性名
+    value为你需要赋的值
+使用@Componet注解创建该类的对象
+使用@ConfigurationProperties(prefix = "school")自动为对象赋值
+
+可以使用框架来生成你自定义类的数据提示信息
+    添加配置依赖项
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <optional>true</optional>
+            </dependency>

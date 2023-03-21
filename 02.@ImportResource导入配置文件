@@ -1,0 +1,8 @@
+导入配置文件
+    @ImportResource
+        相当于xml文件中的<import>标签
+        使用位置:类的上方
+        value属性:
+            @ImportResource(value="classpath:xml文件的路径")
+            classpath可设置多个属性值{"",""}
+    使用xml文件配合@Configuration使用

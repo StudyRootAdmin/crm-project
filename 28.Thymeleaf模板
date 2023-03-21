@@ -1,0 +1,35 @@
+一个流行的模板引擎,使用java语言开发,可代替jsp技术进行前端页面动态渲染
+基于HTML为载体,用在标签中
+springboot集成了Thymeleaf模板技术
+
+Thymeleaf 的官方网站：http://www.thymeleaf.org
+Thymeleaf 官方手册：https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html
+
+使用Thymeleaf模板
+    1.创建模块时添加上模板引擎
+        Template Engines下的Thymeleaf
+    2.创建controller
+        向前端传递数据data
+        使用HttpServletRequest和Model是一样的
+            request.setAttribute()
+            model.addAttribute()
+    3.创建html页面
+        添加模板后会在resources目录下出现templates包
+        在templates包下写html页面
+    4.接受后台传来的数据并使用
+        标签中使用,例:<p>标签
+            <p th:text="${data}"></p>
+        同时需要对th进行定义
+            <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+默认设置
+    #使用缓存,一般开发阶段使用false,让修改立即生效,上线后需要设置为true
+    spring.thymeleaf.cache=false
+    #编码格式
+    spring.thymeleaf.encoding=utf-8
+    #模板的类型
+    spring.thymeleaf.mode=HTML
+    #模板前缀,    类路径  classpath:/templates/
+    spring.thymeleaf.prefix=classpath:/templates/
+    #模板后缀
+    spring.thymeleaf.suffix=.html

@@ -1,0 +1,17 @@
+添加:
+    1.注入Redis模板 RedisTemplate
+        @Resource
+        private RedisTemplate redisTemplate;
+        可泛型<key,value>
+
+    2.获取ValueOperations对象
+        ValueOperations valueOperations = redisTemplate.opsForValue();
+    3.通过ValueOperations对象操作Redis中的数据类型
+        valueOperations.set(key,value)
+获取:
+    1.注入Redis模板 RedisTemplate
+        同添加
+    2.获取ValueOperations对象
+        同添加
+    3.通过ValueOperations对象操作Redis中的数据类型
+        valueOperations.get(key)
